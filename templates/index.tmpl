@@ -1,6 +1,7 @@
 {{ define "index" }}
 {{ template "header" }}
-{{ template "footer" }}
+
+    <a class="btn btn-primary" href="/add" role="button">Add employee</a>
 
       <table class="table">
           <thead>
@@ -21,4 +22,5 @@
           </tbody>
       </table>
 
+{{ template "footer" }}
 {{ end }}
