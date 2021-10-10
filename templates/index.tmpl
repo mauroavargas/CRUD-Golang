@@ -13,12 +13,17 @@
               </tr>
           </thead>
           <tbody>
+              {{ range.}}
               <tr>
-                  <td scope="row">0</td>
-                  <td>Mauro Vargas</td>
-                  <td>mauricio.vargas@triario.com</td>
-                  <td>Edit | Delete</td>
+                  <td scope="row">{{.Id}}</td>
+                  <td>{{.Name}}</td>
+                  <td>{{.Email}}</td>
+                  <td>Edit {{.Id}} | 
+                    
+                    <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
+                    </td>
               </tr>
+              {{ end }}
           </tbody>
       </table>
 

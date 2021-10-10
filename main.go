@@ -33,10 +33,45 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
+type Employee struct {
+	Id    int
+	Name  string
+	Email string
+}
+
 func Index(w http.ResponseWriter, r *http.Request) {
 
+	establishedConnection := connectDB()
+	getRecords, err := establishedConnection.Query("SELECT * FROM employees")
+
+	if err != nil {
+		panic(err.Error())
+	}
+
+	employee := Employee{}
+	arrayEmployee := []Employee{}
+
+	for getRecords.Next() {
+		var id int
+		var name, email string
+		err = getRecords.Scan(&id, &name, &email)
+
+		if err != nil {
+			panic(err.Error())
+		}
+
+		employee.Id = id
+		employee.Name = name
+		employee.Email = email
+
+		arrayEmployee = append(arrayEmployee, employee)
+
+	}
+
+	// fmt.Println(arrayEmployee)
+
 	// fmt.Fprintf(w, "Hello World!")
-	templates.ExecuteTemplate(w, "index", nil)
+	templates.ExecuteTemplate(w, "index", arrayEmployee)
 }
 
 func Add(w http.ResponseWriter, r *http.Request) {
@@ -57,7 +92,7 @@ func Insert(w http.ResponseWriter, r *http.Request) {
 		}
 		addRecords.Exec(name, email)
 
-		http.Redirect(w, r, "/", 301)
+		http.Redirect(w, r, "/", http.StatusMovedPermanently)
 
 	}
 }
