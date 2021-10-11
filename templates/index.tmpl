@@ -2,6 +2,8 @@
 {{ template "header" }}
 
     <a class="btn btn-primary" href="/add" role="button">Add employee</a>
+    
+    <br/><br/>
 
       <table class="table">
           <thead>
@@ -19,8 +21,8 @@
                   <td>{{.Name}}</td>
                   <td>{{.Email}}</td>
                   <td> 
-                    <a name="" id="" class="btn btn-info" href="/edit?id={{.Id}}" role="button">Edit</a>
-                    <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
+                    <a class="btn btn-info" href="/edit?id={{.Id}}" role="button">Edit</a>
+                    <a class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
                   </td>
               </tr>
               {{ end }}

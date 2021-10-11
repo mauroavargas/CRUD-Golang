@@ -2,8 +2,8 @@
 {{ template "header" }}
 
 <div class="card">
-    <div class="card-header">
-        Employees
+    <div class="card-header font-weight-bolder">
+        Add employee
     </div>
 
     <div class="card-body">
@@ -12,15 +12,16 @@
             <div class="form-group">
               <label for="">Name</label>
               <input type="text"
-                class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="">
-              <small id="helpId" class="form-text text-muted">Write the employee name</small>
+                class="form-control" name="name" id="name" aria-describedby="nameHelpId" placeholder="">
+              <small id="nameHelpId" class="form-text text-muted">Write the employee name</small>
             </div>
             <div class="form-group">
               <label for="">Email</label>
               <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="">
               <small id="emailHelpId" class="form-text text-muted">Write the employee email</small>
             </div>
-            <button type="submit" class="btn btn-primary">Add new employee</button>
+            <button type="submit" class="btn btn-success">Add</button>
+            <a class="btn btn-warning" href="/" role="button">Cancel</a>
         </form>
 
     </div>

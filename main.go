@@ -33,8 +33,11 @@ func main() {
 	http.HandleFunc("/edit", Edit)
 	http.HandleFunc("/update", Update)
 
+	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets/"))))
+
 	fmt.Println("Server running!")
 	http.ListenAndServe(":8080", nil)
+
 }
 
 type Employee struct {
