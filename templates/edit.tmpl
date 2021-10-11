@@ -1,0 +1,32 @@
+{{ define "edit" }}
+{{ template "header" }}
+
+<div class="card">
+    <div class="card-header">
+        Edit Employee
+    </div>
+
+    <div class="card-body">
+        <form action="/update" method="post">
+            <div class="form-group">
+                <label for="employeeId">Id</label>
+                <input readonly type="text" class="form-control" name="employeeId" id="employeeId" placeholder="" value="{{.Id}}">
+            </div>
+            <div class="form-group">
+              <label for="">Name</label>
+              <input type="text"
+                class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="" value="{{.Name}}">
+              <small id="helpId" class="form-text text-muted">Write the employee name</small>
+            </div>
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="" value="{{.Email}}">
+              <small id="emailHelpId" class="form-text text-muted">Write the employee email</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit employee</button>
+        </form>
+    </div>
+</div>
+
+{{ template "footer" }}
+{{ end }}

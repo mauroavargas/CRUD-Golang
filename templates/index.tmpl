@@ -18,10 +18,10 @@
                   <td scope="row">{{.Id}}</td>
                   <td>{{.Name}}</td>
                   <td>{{.Email}}</td>
-                  <td>Edit {{.Id}} | 
-                    
+                  <td> 
+                    <a name="" id="" class="btn btn-info" href="/edit?id={{.Id}}" role="button">Edit</a>
                     <a name="" id="" class="btn btn-danger" href="/delete?id={{.Id}}" role="button">Delete</a>
-                    </td>
+                  </td>
               </tr>
               {{ end }}
           </tbody>
